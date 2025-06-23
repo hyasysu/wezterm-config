@@ -14,17 +14,19 @@ end
 
 local keys = {
   -- misc/useful --
-  { key = "F1", mods = "NONE", action = "ActivateCopyMode" },
+  { key = "F10", mods = "NONE", action = "ActivateCopyMode" },
   { key = "F2", mods = "NONE", action = act.ActivateCommandPalette },
   { key = "F3", mods = "NONE", action = act.ShowLauncher },
   { key = "F4", mods = "NONE", action = act.ShowTabNavigator },
   { key = "F11", mods = "NONE", action = act.ToggleFullScreen },
   { key = "F12", mods = "NONE", action = act.ShowDebugOverlay },
   { key = "f", mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = "" }) },
+  { key = "f", mods = "CTRL", action = act.Search({ CaseInSensitiveString = "" }) },
 
   -- copy/paste --
   { key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
   { key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
+  { key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
 
   -- tabs --
   -- tabs: spawn+close
@@ -37,6 +39,7 @@ local keys = {
   { key = "]", mods = mod.SUPER, action = act.ActivateTabRelative(1) },
   { key = "[", mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
   { key = "]", mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
+  { key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
 
   -- window --
   -- spawn windows
@@ -155,12 +158,18 @@ local mouse_bindings = {
   {
     event = { Up = { streak = 1, button = "Left" } },
     mods = "NONE",
-    action = act.ExtendSelectionToMouseCursor("Cell"),
+    action = act.CopyTo("Clipboard"),
+    -- action = act.ExtendSelectionToMouseCursor("Cell"),
   },
   {
     event = { Drag = { streak = 1, button = "Left" } },
     mods = "NONE",
     action = act.ExtendSelectionToMouseCursor("Cell"),
+  },
+  {
+    event = { Up = { streak = 1, button = "Right" } },
+    mods = "NONE",
+    action = act.PasteFrom("Clipboard"),
   },
   -- Triple Left click will select a line
   {
@@ -171,7 +180,8 @@ local mouse_bindings = {
   {
     event = { Up = { streak = 3, button = "Left" } },
     mods = "NONE",
-    action = act.SelectTextAtMouseCursor("Line"),
+    action = act.CopyTo("Clipboard"),
+    -- action = act.SelectTextAtMouseCursor("Line"),
   },
   -- Double Left click will select a word
   {
@@ -182,7 +192,8 @@ local mouse_bindings = {
   {
     event = { Up = { streak = 2, button = "Left" } },
     mods = "NONE",
-    action = act.SelectTextAtMouseCursor("Word"),
+    action = act.CopyTo("Clipboard"),
+    -- action = act.SelectTextAtMouseCursor("Word"),
   },
   -- Turn on the mouse wheel to scroll the screen
   {
