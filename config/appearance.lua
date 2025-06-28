@@ -11,10 +11,11 @@ return {
 
   -- color scheme
   -- colors = colors,
-  color_scheme = "Gruvbox dark, medium (base16)",
+  -- color_scheme = "Gruvbox dark, medium (base16)",
+  color_scheme = "Catppuccin Mocha",
 
   -- background
-  window_background_opacity = 1.00,
+  window_background_opacity = 0.9, -- 1.00,
   win32_system_backdrop = "Acrylic",
   window_background_gradient = {
     colors = { "#1D261B", "#261A25" },
@@ -22,14 +23,14 @@ return {
     orientation = { Linear = { angle = -45.0 } },
   },
   background = {
-    {
-      source = { File = wezterm.config_dir .. "/backdrops/space.jpg" },
-    },
+    -- {
+    --   source = { File = wezterm.config_dir .. "/backdrops/space.jpg" },
+    -- },
     {
       source = { Color = "#1A1B26" },
       height = "100%",
       width = "100%",
-      opacity = 0.95,
+      opacity = 0.75,
     },
   },
 
@@ -56,12 +57,14 @@ return {
 
   -- window
   adjust_window_size_when_changing_font_size = false,
-  window_decorations = "INTEGRATED_BUTTONS|RESIZE",
+  -- window_decorations = "INTEGRATED_BUTTONS|RESIZE",
+  window_decorations = "NONE",
+  -- 可选：启用无边框模式（某些版本需要）
   integrated_title_button_style = "Windows",
   integrated_title_button_color = "auto",
   integrated_title_button_alignment = "Right",
-  initial_cols = 120,
-  initial_rows = 24,
+  initial_cols = 130,
+  initial_rows = 35,
   window_padding = {
     left = 5,
     right = 10,

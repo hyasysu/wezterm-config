@@ -30,7 +30,7 @@ elseif platform.is_mac then
     { label = " Zsh", args = { "zsh", "--login" } },
   }
 elseif platform.is_linux then
-  options.default_prog = { "bash", "--login" }
+  options.default_prog = { "zsh", "--login" }
   options.launch_menu = {
     { label = " Bash", args = { "bash", "--login" } },
     { label = " Fish", args = { "/opt/homebrew/bin/fish", "--login" } },

@@ -1,11 +1,11 @@
 local wezterm = require("wezterm")
 local platform = require("utils.platform")
 
-local font = "JetBrainsMono NF"
-local font_size = platform().is_mac and 12 or 9
+local font_size = platform().is_mac and 12 or 14
 
 return {
-  font = wezterm.font(font),
+  -- font = wezterm.font("LigaMonaco Nerd Font", { weight = "Regular" }),
+  font = wezterm.font("BlexMono Nerd Font Mono", { weight = "Regular" }),
   font_size = font_size,
 
   --ref: https://wezfurlong.org/wezterm/config/lua/config/freetype_pcf_long_family_names.html#why-doesnt-wezterm-use-the-distro-freetype-or-match-its-configuration
